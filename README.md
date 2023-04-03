@@ -62,6 +62,7 @@ length_more_than       (str)
 ```
 Other filters can be added in following format
 Response: Lists all the boxes in the database<br />
+
 2. GET | (all boxes created by that user)<br />
 ```http://127.0.0.1:8000/boxes/my-boxes```<br />
 Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes
@@ -69,7 +70,8 @@ Expects: Auth credentials(username and password) and the filters in the body acc
 height_more_than     (str)
 length_more_than       (str)
 ```
-Response: Displays the details of the boxes created by that user
+Response: Displays the details of the boxes created by that user<br />
+
 3. POST | (add a new box)<br />
 ```http://127.0.0.1:8000/boxes/create```<br />
 Expects: The following fields in the body of the api request:
@@ -78,7 +80,8 @@ length      (str)
 breadth      (str)
 height       (str)
 ```
-Response: Returns success after the box is added
+Response: Returns success after the box is added<br />
+
 4. PUT | (updates the box with the given id)<br />
 ```http://127.0.0.1:8000/boxes/update/<id>```<br />
 Expects: The following fields in the body of the api request:
@@ -87,12 +90,14 @@ length      (str)
 breadth      (str)
 height       (str)
 ```
-Response: Returns success after updating the box
+Response: Returns success after updating the box<br />
+
 5. DELETE | (delete the box with the given id)<br />
 ```http://12.0.0.1:8000/delete/<id>```<br />
 Expects: Auth credentials
-Response: Returns success if the delete is successful
-7. POST | (Register a user)<br />
+Response: Returns success if the delete is successful<br />
+
+6. POST | (Register a user)<br />
 ```http://127.0.0.1:8000/boxes/register```<br />
 Expects: The following fields in the body of the api request:
 ```
@@ -100,7 +105,7 @@ username      (str)
 email       (str)
 password       (str)
 ```
-Response: Returns success, if the creation was succesfull. 
+Response: Returns success, if the creation was succesfull.<br />
 <b>You can test the above mentioned APIs in Postman or anywhere you like! :) </b>
 
 
