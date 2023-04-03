@@ -45,7 +45,7 @@ def add_box(request):
     createdBy = request.user
 
     box = Box(length=length, breadth=breadth,
-              height=height, area=length * breadth, volume=length * breadth * height, created_by=createdBy)
+              height=height, area=float(length) * float(breadth), volume=float(length) * float(breadth) * float(height), created_by=createdBy)
     if validate_box_limits(box) and validate_box_creation_limit(box):
         box.save()
     else:
