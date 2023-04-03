@@ -1,0 +1,79 @@
+# spinny-django
+
+## Installation
+These were my python configs at the time of making this project:
+```
+python version: 3.9.6
+pip version: 21.1.3
+```
+Clone this repo and run the following commands on your terminal:
+```
+$ pip install -r requirements.txt
+$ python3 manage.py runserver
+```
+If the server does not start, try the following commands:
+```
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+$ python3 manage.py runserver
+```
+
+If the server still does not start, google your error :)
+
+### Login Credentials for SuperUser:
+After your server starts, visit ```localhost:8000/admin``` and use the following credentials to checkout the database
+```
+username: boss
+password: anshika2405
+```
+
+
+## About the Database:
+The 'Box' db has the following fields:
+1. ```length```    : float; stores the length of the box
+2. ```breadth```   : float; stores the length of the box
+3. ```height```   : float; stores the length of the box
+4. ```area```  : float; stores the length of the box
+5. ```volume```   : float; stores the length of the box
+6. ```created_by``` : string; stores the username of the user
+7. ```created_at``` : DateTime; stores the date and time at which the box is created
+8. ```last_updated``` : DateTime; stores the date and time at which the box is last updated
+
+## About the APIs:
+There are in total 6 apis in this project.
+
+1. GET | (all)<br />
+   ```http://127.0.0.1:8000/boxes/list```<br />
+Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes<br />
+Response: Lists all the boxes in the database<br />
+2. GET | (individual boxes)<br />
+```http://127.0.0.1:8000/boxes/my-boxes```<br />
+Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes
+Response: Displays the details of the boxes created by that user
+3. POST | (add a new box)<br />
+```http://127.0.0.1:8000/boxes/create```<br />
+Expects: length, breadth, height of the box and Auth credentials<br />
+Response: Returns success after the box is added
+4. PUT | (updates the box with the given id)<br />
+```http://127.0.0.1:8000/boxes/update/<id>```<br />
+Expects: Length, breadth and height that need to be updated<br />
+Response: Returns success after updating the box
+5. DELETE | (delete the box with the given id)<br />
+```http://12.0.0.1:8000/delete/<id>```<br />
+Expects: Auth credentials
+Response: Returns success if the delete is successful
+7. POST | (Register a user)<br />
+```http://127.0.0.1:8000/boxes/register```<br />
+Expects: The following fields in the body of the api request:
+```
+username      (str)
+email       (str)
+password       (str)
+```
+Response: Returns success, if the creation was succesfull. 
+<b>You can test the above mentioned APIs in Postman or anywhere you like! :) </b>
+
+
+## Made By: 
+Anshika Jain<br />
+Delhi Technological University (DTU)<br />
