@@ -1,4 +1,4 @@
-# spinny-django
+# boxes-django
 
 ## Installation
 These were my python configs at the time of making this project:
@@ -23,12 +23,21 @@ If the server still does not start, google your error :)
 ### Login Credentials for SuperUser:
 After your server starts, visit ```localhost:8000/admin``` and use the following credentials to checkout the database
 ```
-username: boss
-password: anshika2405
+username: test
+password: spinny
 ```
 
+```
+username: test2
+password: spinny
+```
+
+test is a staff user and has staff access and test2 is a non-staff user. So to check the staff and non-staff functionalities, you can use these credentials.
 
 ## About the Database:
+
+The 'User' db is taken directly from django.contrib.auth
+
 The 'Box' db has the following fields:
 1. ```length```    : float; stores the length of the box
 2. ```breadth```   : float; stores the length of the box
@@ -42,11 +51,13 @@ The 'Box' db has the following fields:
 ## About the APIs:
 There are in total 6 apis in this project.
 
+Note - To check the APIs, you need to provide the Auth credentials in the authentication. Go to postman, choose basic auth and add username and password of the user
+
 1. GET | (all)<br />
    ```http://127.0.0.1:8000/boxes/list```<br />
 Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes<br />
 Response: Lists all the boxes in the database<br />
-2. GET | (individual boxes)<br />
+2. GET | (all boxes created by that user)<br />
 ```http://127.0.0.1:8000/boxes/my-boxes```<br />
 Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes
 Response: Displays the details of the boxes created by that user
