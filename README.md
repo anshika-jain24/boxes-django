@@ -20,7 +20,7 @@ $ python3 manage.py runserver
 
 If the server still does not start, google your error :)
 
-### Login Credentials for SuperUser:
+### Login Credentials for user:
 After your server starts, visit ```localhost:8000/admin``` and use the following credentials to checkout the database
 ```
 username: test
@@ -51,23 +51,42 @@ The 'Box' db has the following fields:
 ## About the APIs:
 There are in total 6 apis in this project.
 
-Note - To check the APIs, you need to provide the Auth credentials in the authentication. Go to postman, choose basic auth and add username and password of the user
+Note - To check the APIs, you need to provide the Auth credentials in the authentication. Choose basic auth and add username and password of the user
 
 1. GET | (all)<br />
    ```http://127.0.0.1:8000/boxes/list```<br />
-Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes<br />
+Expects: Auth credentials(username and password) and the filters in the body in following format<br />
+```
+height_more_than     (str)
+length_more_than       (str)
+```
+Other filters can be added in following format
 Response: Lists all the boxes in the database<br />
 2. GET | (all boxes created by that user)<br />
 ```http://127.0.0.1:8000/boxes/my-boxes```<br />
 Expects: Auth credentials(username and password) and the filters in the body according to which you want to filter the boxes
+```
+height_more_than     (str)
+length_more_than       (str)
+```
 Response: Displays the details of the boxes created by that user
 3. POST | (add a new box)<br />
 ```http://127.0.0.1:8000/boxes/create```<br />
-Expects: length, breadth, height of the box and Auth credentials<br />
+Expects: The following fields in the body of the api request:
+```
+length      (str)
+breadth      (str)
+height       (str)
+```
 Response: Returns success after the box is added
 4. PUT | (updates the box with the given id)<br />
 ```http://127.0.0.1:8000/boxes/update/<id>```<br />
-Expects: Length, breadth and height that need to be updated<br />
+Expects: The following fields in the body of the api request:
+```
+length      (str)
+breadth      (str)
+height       (str)
+```
 Response: Returns success after updating the box
 5. DELETE | (delete the box with the given id)<br />
 ```http://12.0.0.1:8000/delete/<id>```<br />
